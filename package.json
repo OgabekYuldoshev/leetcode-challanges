@@ -1,0 +1,8 @@
+{
+  "name": "leetcode-challanges",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
