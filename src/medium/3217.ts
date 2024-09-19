@@ -4,26 +4,26 @@
 
 import { generateLinkedList, ListNode } from "../utils";
 
-let nums = [9, 2, 5];
-let head = generateLinkedList([2, 10, 9]);
+const nums = [9, 2, 5];
+const head = generateLinkedList([2, 10, 9]);
 
 function modifiedList(nums: number[], head: ListNode | null): ListNode | null {
-  const values = new Set(nums);
+	const values = new Set(nums);
 
-  let dummy: ListNode = new ListNode(0);
-  let tail: ListNode = dummy;
-  let currentNode = head;
+	const dummy: ListNode = new ListNode(0);
+	let tail: ListNode = dummy;
+	let currentNode = head;
 
-  while (currentNode) {
-    if (!values.has(currentNode.val)) {
-      tail.next = currentNode;
-      tail = tail.next;
-    } else {
-      tail.next = null;
-    }
-    currentNode = currentNode.next;
-  }
-  return dummy.next;
+	while (currentNode) {
+		if (!values.has(currentNode.val)) {
+			tail.next = currentNode;
+			tail = tail.next;
+		} else {
+			tail.next = null;
+		}
+		currentNode = currentNode.next;
+	}
+	return dummy.next;
 }
 
 console.log(JSON.stringify(modifiedList(nums, head), null, 2));

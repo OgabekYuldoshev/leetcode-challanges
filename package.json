@@ -2,7 +2,17 @@
   "name": "leetcode-challanges",
   "version": "1.0.0",
   "license": "MIT",
+  "scripts": {
+    "lint": "biome lint --write ./src",
+    "format": "biome format --write ./src",
+    "check": "biome check  --write ./src"
+  },
   "devDependencies": {
+    "@biomejs/biome": "1.9.1",
+    "simple-git-hooks": "^2.11.1",
     "typescript": "^5.5.4"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }
