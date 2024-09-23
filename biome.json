@@ -22,6 +22,9 @@
       "recommended": true,
       "style": {
         "noParameterAssign": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
       }
     }
   },
