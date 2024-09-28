@@ -14,5 +14,8 @@
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
   }
 }
