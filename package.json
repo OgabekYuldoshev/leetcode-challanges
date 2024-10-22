@@ -16,6 +16,7 @@
     "pre-commit": "npx lint-staged"
   },
   "dependencies": {
+    "data-structure-typed": "^1.52.4",
     "ts-node": "^10.9.2"
   }
 }
