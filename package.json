@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "data-structure-typed": "^1.52.4",
+    "thenby": "^1.3.4",
     "ts-node": "^10.9.2"
   }
 }
