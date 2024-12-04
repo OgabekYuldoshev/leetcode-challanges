@@ -1,24 +1,24 @@
 // 46. Permutations
 
 function permute(nums: number[]): number[][] {
-    const map: number[][] = []
+	const map: number[][] = [];
 
-    function recursion(arr: number[], idx: number) {
-        if (idx === arr.length) {
-            map.push([...arr]);
-            return;
-        }
+	function recursion(arr: number[], idx: number) {
+		if (idx === arr.length) {
+			map.push([...arr]);
+			return;
+		}
 
-        for (let i = idx; i < arr.length; i++) {
-            [arr[idx], arr[i]] = [arr[i], arr[idx]]
-            recursion(arr, idx + 1);
-            [arr[idx], arr[i]] = [arr[i], arr[idx]]
-        }
-    }
+		for (let i = idx; i < arr.length; i++) {
+			[arr[idx], arr[i]] = [arr[i], arr[idx]];
+			recursion(arr, idx + 1);
+			[arr[idx], arr[i]] = [arr[i], arr[idx]];
+		}
+	}
 
-    recursion(nums, 0)
+	recursion(nums, 0);
 
-    return map
-};
+	return map;
+}
 
-console.log(permute([1, 2, 3]))
+console.log(permute([1, 2, 3]));

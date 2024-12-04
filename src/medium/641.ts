@@ -2,107 +2,107 @@
 // Solution: https://leetcode.com/problems/design-circular-deque/submissions/1406080654/?envType=daily-question&envId=2024-09-28
 
 class LNode {
-  value: number;
-  next: LNode | null = null;
+	value: number;
+	next: LNode | null = null;
 
-  constructor(value: number, next?: LNode) {
-    this.value = value === undefined ? 0 : value;
-    this.next = next === undefined ? null : next;
-  }
+	constructor(value: number, next?: LNode) {
+		this.value = value === undefined ? 0 : value;
+		this.next = next === undefined ? null : next;
+	}
 }
 
 class MyCircularDeque {
-  size: number = 0;
-  length: number = 0;
-  front: LNode | null = null;
+	size = 0;
+	length = 0;
+	front: LNode | null = null;
 
-  constructor(k: number) {
-    this.size = k;
-  }
+	constructor(k: number) {
+		this.size = k;
+	}
 
-  insertFront(value: number): boolean {
-    if (this.isFull()) return false;
-    // Create a new node
-    const newNode = new LNode(value);
+	insertFront(value: number): boolean {
+		if (this.isFull()) return false;
+		// Create a new node
+		const newNode = new LNode(value);
 
-    if (this.isEmpty()) {
-      this.front = newNode;
-    } else {
-      newNode.next = this.front;
-      this.front = newNode;
-    }
+		if (this.isEmpty()) {
+			this.front = newNode;
+		} else {
+			newNode.next = this.front;
+			this.front = newNode;
+		}
 
-    this.length++;
+		this.length++;
 
-    return true;
-  }
+		return true;
+	}
 
-  insertLast(value: number): boolean {
-    if (this.isFull()) return false;
-    const newNode = new LNode(value);
+	insertLast(value: number): boolean {
+		if (this.isFull()) return false;
+		const newNode = new LNode(value);
 
-    if (this.isEmpty()) {
-      this.front = newNode;
-    } else {
-      let currentNode = this.front;
-      while (currentNode?.next) {
-        currentNode = currentNode.next;
-      }
-      if (currentNode) {
-        currentNode.next = newNode;
-      }
-    }
-    this.length++;
-    return true;
-  }
+		if (this.isEmpty()) {
+			this.front = newNode;
+		} else {
+			let currentNode = this.front;
+			while (currentNode?.next) {
+				currentNode = currentNode.next;
+			}
+			if (currentNode) {
+				currentNode.next = newNode;
+			}
+		}
+		this.length++;
+		return true;
+	}
 
-  deleteFront(): boolean {
-    if (this.isEmpty()) return false;
-    if (this.front) {
-      this.front = this.front.next;
-    }
-    this.length--;
-    return true;
-  }
+	deleteFront(): boolean {
+		if (this.isEmpty()) return false;
+		if (this.front) {
+			this.front = this.front.next;
+		}
+		this.length--;
+		return true;
+	}
 
-  deleteLast(): boolean {
-    if (this.isEmpty()) return false;
-    let currentNode = this.front;
-    let prevNode: LNode | null = null;
-    while (currentNode?.next) {
-      prevNode = currentNode;
-      currentNode = currentNode.next;
-    }
+	deleteLast(): boolean {
+		if (this.isEmpty()) return false;
+		let currentNode = this.front;
+		let prevNode: LNode | null = null;
+		while (currentNode?.next) {
+			prevNode = currentNode;
+			currentNode = currentNode.next;
+		}
 
-    if (prevNode !== null) {
-      prevNode.next = null;
-      this.length--;
-      return true;
-    }
+		if (prevNode !== null) {
+			prevNode.next = null;
+			this.length--;
+			return true;
+		}
 
-    return this.deleteFront();
-  }
+		return this.deleteFront();
+	}
 
-  getFront(): number {
-    return this.front?.value ?? -1;
-  }
+	getFront(): number {
+		return this.front?.value ?? -1;
+	}
 
-  getRear(): number {
-    let currentNode = this.front;
-    while (currentNode?.next) {
-      currentNode = currentNode.next;
-    }
+	getRear(): number {
+		let currentNode = this.front;
+		while (currentNode?.next) {
+			currentNode = currentNode.next;
+		}
 
-    return currentNode?.value ?? -1;
-  }
+		return currentNode?.value ?? -1;
+	}
 
-  isEmpty(): boolean {
-    return this.length === 0;
-  }
+	isEmpty(): boolean {
+		return this.length === 0;
+	}
 
-  isFull(): boolean {
-    return this.length === this.size;
-  }
+	isFull(): boolean {
+		return this.length === this.size;
+	}
 }
 
 const q = new MyCircularDeque(5);

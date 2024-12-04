@@ -3,17 +3,16 @@
 //SOlved: https://leetcode.com/problems/find-target-indices-after-sorting-array/submissions/1399564596/
 
 function targetIndices(nums: number[], target: number): number[] {
+	nums.sort((a, b) => a - b);
 
-    nums.sort((a, b) => a - b);
+	const ans: number[] = [];
+	for (let i = 0; i < nums.length; i++) {
+		if (nums[i] === target) {
+			ans.push(i);
+		}
+	}
 
-    const ans: number[] = [];
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] === target) {
-            ans.push(i);
-        }
-    }
-
-    return ans
+	return ans;
 }
 
 console.log(targetIndices([1, 2, 5, 2, 3], 2));

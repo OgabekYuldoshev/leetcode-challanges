@@ -2,7 +2,7 @@
 
 // Submittion: https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/submissions/1383326502/?envType=daily-question&envId=2024-09-06
 
-import { generateLinkedList, ListNode } from "../utils";
+import { ListNode, generateLinkedList } from "../utils";
 
 const nums = [9, 2, 5];
 const head = generateLinkedList([2, 10, 9]);

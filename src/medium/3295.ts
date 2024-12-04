@@ -3,19 +3,19 @@
 // Solved: https://leetcode.com/problems/report-spam-message/submissions/1416824818/
 
 function reportSpam(message: string[], bannedWords: string[]): boolean {
-    const set = new Set(bannedWords)
-    let counter = 0
+	const set = new Set(bannedWords);
+	let counter = 0;
 
-    for (const m of message) {
-        if (set.has(m)) {
-            counter++
-            if (counter >= 2) {
-                return true
-            }
-        }
-    }
+	for (const m of message) {
+		if (set.has(m)) {
+			counter++;
+			if (counter >= 2) {
+				return true;
+			}
+		}
+	}
 
-    return false
-};
+	return false;
+}
 
-console.log(reportSpam(["hello", "world", "leetcode"], ["world", "hello"]))
+console.log(reportSpam(["hello", "world", "leetcode"], ["world", "hello"]));
