@@ -1,5 +1,3 @@
 {
-  "lint-staged": {
-    "*.ts": "yarn lint"
-  }
+  "*.ts": "biome check --write ./src"
 }
